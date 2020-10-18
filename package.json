@@ -1,0 +1,65 @@
+{
+  "name": "jetop-credentials-backend",
+  "version": "0.0.1",
+  "description": "App delle credenziali JEToP",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10.16"
+  },
+  "scripts": {
+    "build": "lb-tsc",
+    "build:watch": "lb-tsc --watch",
+    "lint": "npm run prettier:check",
+    "lint:fix": "npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "pretest": "npm run clean && npm run build",
+    "test": "lb-mocha --allow-console-logs \"dist/__tests__\"",
+    "posttest": "npm run lint",
+    "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
+    "docker:build": "docker build -t jetop-credentials-backend .",
+    "docker:run": "docker run -p 3000:3000 -d jetop-credentials-backend",
+    "premigrate": "npm run build",
+    "migrate": "node ./dist/migrate",
+    "preopenapi-spec": "npm run build",
+    "openapi-spec": "node ./dist/openapi-spec",
+    "prestart": "npm run build",
+    "start": "node -r source-map-support/register .",
+    "clean": "lb-clean dist *.tsbuildinfo .eslintcache"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "DobySama <boassi.domenico@gmail.com>",
+  "license": "",
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "dependencies": {
+    "@loopback/boot": "^3.0.2",
+    "@loopback/core": "^2.11.0",
+    "@loopback/repository": "^3.1.0",
+    "@loopback/rest": "^8.0.0",
+    "@loopback/rest-crud": "^0.8.16",
+    "@loopback/rest-explorer": "^3.0.2",
+    "@loopback/service-proxy": "^3.0.2",
+    "loopback-connector-postgresql": "^5.2.0",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@loopback/build": "^6.2.5",
+    "source-map-support": "^0.5.19",
+    "@loopback/testlab": "^3.2.7",
+    "@types/node": "^10.17.37",
+    "typescript": "~4.0.3"
+  }
+}
