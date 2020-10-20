@@ -17,6 +17,9 @@ export class Credential extends Entity {
 
   @property({
     type: 'object',
+    postgresql:{
+      dataType: 'json'
+    }
   })
   backupCode?: object;
 
@@ -27,16 +30,28 @@ export class Credential extends Entity {
 
   @property({
     type: 'string',
+    postgresql:{
+      dataType: 'varchar',
+      dataLength: 50
+    }
   })
   referredContact?: string;
 
   @property({
     type: 'string',
+    postgresql:{
+      dataType: 'varchar',
+      dataLength: 50
+    }
   })
   referredNumber?: string;
 
   @property({
     type: 'string',
+    postgresql:{
+      dataType: 'varchar',
+      dataLength: 50
+    }
   })
   otpType?: string;
 
