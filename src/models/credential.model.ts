@@ -18,7 +18,7 @@ export class Credential extends Entity {
 
   @property({
     type: 'object',
-    postgresql:{
+    postgresql: {
       dataType: 'json'
     }
   })
@@ -31,7 +31,7 @@ export class Credential extends Entity {
 
   @property({
     type: 'string',
-    postgresql:{
+    postgresql: {
       dataType: 'varchar',
       dataLength: 50
     }
@@ -40,7 +40,7 @@ export class Credential extends Entity {
 
   @property({
     type: 'string',
-    postgresql:{
+    postgresql: {
       dataType: 'varchar',
       dataLength: 50
     }
@@ -49,7 +49,7 @@ export class Credential extends Entity {
 
   @property({
     type: 'string',
-    postgresql:{
+    postgresql: {
       dataType: 'varchar',
       dataLength: 50
     }
@@ -58,6 +58,11 @@ export class Credential extends Entity {
 
   @hasMany(() => History)
   histories: History[];
+
+  @property({
+    type: 'number',
+  })
+  serviceId?: number;
 
   constructor(data?: Partial<Credential>) {
     super(data);
