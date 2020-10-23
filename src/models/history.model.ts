@@ -54,6 +54,10 @@ export class History extends Entity {
   })
   expirationDate?: string;
 
+  @property({
+    type: 'number',
+  })
+  credentialId?: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data
