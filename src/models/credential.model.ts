@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {History} from './history.model';
 
 @model()
 export class Credential extends Entity {
@@ -55,6 +56,8 @@ export class Credential extends Entity {
   })
   otpType?: string;
 
+  @hasMany(() => History)
+  histories: History[];
 
   constructor(data?: Partial<Credential>) {
     super(data);
