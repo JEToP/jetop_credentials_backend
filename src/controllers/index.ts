@@ -7,3 +7,4 @@ export * from './user.controller';
 export * from './credential-history.controller';
 export * from './service-credential.controller';
 export * from './history-credential.controller';
+export * from './credential-service.controller';

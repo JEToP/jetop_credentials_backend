@@ -1,5 +1,6 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, model, property, hasMany, belongsTo} from '@loopback/repository';
 import {History} from './history.model';
+import {Service} from './service.model';
 
 @model()
 export class Credential extends Entity {
@@ -59,10 +60,8 @@ export class Credential extends Entity {
   @hasMany(() => History)
   histories: History[];
 
-  @property({
-    type: 'number',
-  })
-  serviceId?: number;
+  @belongsTo(() => Service)
+  serviceId: number;
 
   constructor(data?: Partial<Credential>) {
     super(data);
