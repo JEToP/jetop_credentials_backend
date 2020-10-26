@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Credential} from './credential.model';
 
 @model({settings: {strict: false}})
 export class History extends Entity {
@@ -54,6 +55,8 @@ export class History extends Entity {
   })
   expirationDate?: string;
 
+  @belongsTo(() => Credential)
+  credentialId: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

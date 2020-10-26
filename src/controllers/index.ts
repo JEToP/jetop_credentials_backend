@@ -4,3 +4,6 @@ export * from './history.controller';
 export * from './hello-world-example.controller';
 export * from './service.controller';
 export * from './user.controller';
+export * from './credential-history.controller';
+export * from './service-credential.controller';
+export * from './history-credential.controller';

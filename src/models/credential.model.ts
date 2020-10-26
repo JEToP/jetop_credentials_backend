@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {History} from './history.model';
 
 @model()
 export class Credential extends Entity {
@@ -17,7 +18,7 @@ export class Credential extends Entity {
 
   @property({
     type: 'object',
-    postgresql:{
+    postgresql: {
       dataType: 'json'
     }
   })
@@ -30,7 +31,7 @@ export class Credential extends Entity {
 
   @property({
     type: 'string',
-    postgresql:{
+    postgresql: {
       dataType: 'varchar',
       dataLength: 50
     }
@@ -39,7 +40,7 @@ export class Credential extends Entity {
 
   @property({
     type: 'string',
-    postgresql:{
+    postgresql: {
       dataType: 'varchar',
       dataLength: 50
     }
@@ -48,13 +49,20 @@ export class Credential extends Entity {
 
   @property({
     type: 'string',
-    postgresql:{
+    postgresql: {
       dataType: 'varchar',
       dataLength: 50
     }
   })
   otpType?: string;
 
+  @hasMany(() => History)
+  histories: History[];
+
+  @property({
+    type: 'number',
+  })
+  serviceId?: number;
 
   constructor(data?: Partial<Credential>) {
     super(data);

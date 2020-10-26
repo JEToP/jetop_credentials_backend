@@ -52,7 +52,9 @@
     "@loopback/rest-crud": "^0.8.16",
     "@loopback/rest-explorer": "^3.0.2",
     "@loopback/service-proxy": "^3.0.2",
+    "@types/node-forge": "^0.9.5",
     "loopback-connector-postgresql": "^5.2.0",
+    "node-forge": "^0.10.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
