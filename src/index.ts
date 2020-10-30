@@ -5,6 +5,11 @@ export * from './application';
 export async function main(options: ApplicationConfig = {}) {
   const app = new JetopCredentialsBackendApplication(options);
   await app.boot();
+
+  //If needed one can uncomment line 10 and comment line 12 to automigrate instead of autoupdating
+  //await app.migrateSchema('--rebuild');
+
+  await app.migrateSchema();
   await app.start();
 
   const url = app.restServer.url;
